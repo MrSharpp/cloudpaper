@@ -9,7 +9,7 @@ export class Container {
     }
 
 
-    async buildImage(file: File){
-        await this._axios.post("/build", file, {headers: {"Content-Type": "application/x-tar"}})
+    async buildImage(file: Buffer){
+       return  this._axios.post("/build", file, {headers: {"Content-Type": "application/x-tar"}})
     }
 }
