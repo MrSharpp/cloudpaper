@@ -7,7 +7,7 @@
         
         
         RUN git init
-        RUN git pull https://github.com/jatins/express-hello-world
+        RUN git pull https://github.com/lujakob/nestjs-realworld-example-app
         
         RUN npm install --force
         RUN npm run build; exit 0
