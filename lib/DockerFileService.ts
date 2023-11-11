@@ -11,14 +11,14 @@ export class DockerFileService {
         `
     }
 
-    private appPort(port: string){
+    private appPort(port: number){
         this.dockerfile += 
         `
         EXPOSE ${port}
         `
     }
 
-    private addEnviroments(envs: {key: string, value: string}[]){
+    private addEnviroments(envs: {key: string, value: string}[] = []){
         this.dockerfile +=
         `
         ${envs.map((env) => `ENV ${env.key}=${env.value}\n`)}
@@ -48,7 +48,7 @@ export class DockerFileService {
         `
     }
 
-    makeDockerFile(opts: {envs: {key: string, value: string}[], port: string, repoLink: string}){
+    makeDockerFile(opts: {envs: {key: string, value: string}[], port: number, repoLink: string}){
         this.initial();
         this.appPort(opts.port);
         this.addEnviroments(opts.envs);
