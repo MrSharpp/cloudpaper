@@ -19,7 +19,7 @@ export class DaemonHost {
     createContainer(containerName: string, tagname: string): Promise<{Id: string, Warnings: any[]}>{
         let url = "/containers/create?"
         url += `name=${containerName}`
-        return this._axios.post(url, {Image: tagname}).then(res => res.data)
+        return this._axios.post(url, {Image: tagname, ExposedPorts: {"3000/tcp": {}}}).then(res => res.data)
     }
 
     // Step 3

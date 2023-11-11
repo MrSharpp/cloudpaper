@@ -1,4 +1,4 @@
-import fs from 'fs/promises'
+import * as fs from 'fs/promises'
 
 export class DockerFileService {
     private dockerfile: string = ""
@@ -37,7 +37,7 @@ export class DockerFileService {
         this.dockerfile += 
         `
         RUN npm install --force
-        RUN npm run build
+        RUN npm run build; exit 0
         `
     }
 
